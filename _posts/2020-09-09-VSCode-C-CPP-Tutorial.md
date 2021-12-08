@@ -1,10 +1,11 @@
 ---
+layout: article
+pageview: true
+key: VSCode-C-CPP-Tutorial
 title: 配置VSCode编写C/C++教程
-date: 2020-09-09T16:05:00+01:00
-lastmod: 2020-09-09T16:05:00+01:00
 author: Ch4rc0al
 # authorlink: https://author.site
-cover: /post/VSCode_cover.jpg
+# cover: /post/VSCode_cover.jpg
 categories:
   - VSCode
 tags:
