@@ -7,7 +7,7 @@ author: Ch4rc0al
 # authorlink: https://author.site
 # cover: /post/VSCode_cover.jpg
 categories:
-  - VSCode
+  - Tutorials
 tags:
   - VSCode	
   - IDE
