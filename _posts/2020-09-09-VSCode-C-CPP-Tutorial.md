@@ -1,7 +1,6 @@
 ---
 layout: article
 pageview: true
-key: VSCode-C-CPP-Tutorial
 title: 配置VSCode编写C/C++教程
 author: Ch4rc0al
 # authorlink: https://author.site
