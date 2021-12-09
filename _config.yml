@@ -139,7 +139,7 @@ comments:
   valine:
     app_id      : RnBK7pdlGCP1z9aUvG0i12dT-gzGzoHsz # LeanCloud App id
     app_key     : HHifu4neoiaqUpBmQN5RCAAm # LeanCloud App key
-    placeholder : 指指点点 # Prompt information
+    placeholder : # Prompt information
     visitor     : # false (default)
     meta        : # "[nick, mail, link]" (default) nickname, E-mail, Personal-site
 
