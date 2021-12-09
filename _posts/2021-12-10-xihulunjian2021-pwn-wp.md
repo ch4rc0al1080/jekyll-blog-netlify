@@ -7,7 +7,7 @@ author: Ch4rc0al
 categories:
   - WriteUps 
 tags: 
-  - PWN
+  - Pwn
   - CTF
 ---
 
@@ -25,7 +25,7 @@ tags:
 
 主函数内一个栈溢出，没有开`PIE`，可利用函数只有`alarm`,`sleep`,`read`，结尾`return read(xxx)`，考虑`srop`，我们在`bss`段写下`/bin/sh`字符串，修改`alarm`函数的got表地址后一位为`0x?5`将其改为`syscall`，在栈上布置`Sigreturn frame`，内容为执行`execve('/bin/sh',0,0)`，在read里输入`0xf`个字符调用`signal return`，完成getshell。
 
-代码很难看
+代码写的很难看，请见谅
 
 ```python
 from pwn import *
