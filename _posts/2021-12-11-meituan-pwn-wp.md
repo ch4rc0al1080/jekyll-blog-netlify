@@ -12,7 +12,7 @@ tags:
 ---
 
 # 美团CTF初赛Pwn题WP 
-
+<!--more-->
 ## babyrop
 
 题目没有开`PIE`，for循环中可以溢出一位拿到`canary`，在`vul`函数中可以溢出至ret，我们可以返回到代码段`printf`附近的代码，其中`%s`的参数是通过`rbp-0x20`计算得到，我们可以在`vul`函数中溢出时指定`rbp`的值来实现任意地址读，我们读取`got`表或`bss`段相关内容都可以拿到`libc`地址，进而用`one_gadget`拿到shell
