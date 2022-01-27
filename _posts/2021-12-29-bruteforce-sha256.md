@@ -24,7 +24,7 @@ import threading
 import itertools
 
 alpha_bet='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
-strlist = itertools.combinations_with_replacement(alpha_bet, 4)
+strlist = itertools.permutations(alpha_bet, 4)
 
 
 sha256="a645e3deef85766e43c8a1aa63d1f69eed55e7cb94f10973bd76a9ace57c7311"
