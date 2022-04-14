@@ -19,7 +19,7 @@ tags:
 
 题目环境2.31，保护只有NX，题目内可利用函数只有`read`和`setvbuf`，main函数中溢出到ret便结束了。
 
-调用`read`函数的代码通过`rbp+buf`的形式算出`rsi`,我们可以通过溢出控制`rbp`并再次调用`read`函数来在指定地址写入内容，之后栈迁移便可控制程序流执行`execve("/bin/sh",0,0`。
+调用`read`函数的代码通过`rbp+buf`的形式算出`rsi`,我们可以通过溢出控制`rbp`并再次调用`read`函数来在指定地址写入内容，之后栈迁移便可控制程序流执行`execve("/bin/sh",0,0)`。
 
 我们通过修改`read`函数的got表，使其指向`syscall`,再通过`syscall`调用`execve`即可。
 
