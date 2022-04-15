@@ -11,7 +11,6 @@ tags:
     - Pwn
 ---
 
-# 2022DASCTF X SU 三月春季挑战赛 Pwn题WP
 
 <!--more-->
 

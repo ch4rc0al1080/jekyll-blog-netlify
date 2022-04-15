@@ -11,7 +11,6 @@ tags:
     - Pwn
 ---
 
-# 长安战疫Pwn题WP
 
 <!--more-->
 
