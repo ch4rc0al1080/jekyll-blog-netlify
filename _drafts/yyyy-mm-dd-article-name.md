@@ -5,6 +5,9 @@ key:
 title: 
 author: Ch4rc0al
 categories: 
+    - WriteUps
 tags: 
+    - CTF
+    - Pwn
 ---
 
