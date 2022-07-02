@@ -32,9 +32,8 @@ xxxx=''
 
 for i in strlist:
     data=i[0]+i[1]+i[2]+i[3]
-    data+=str(tail,encoding='utf-8')
-    data_sha=hashlib.sha256(data.encode('utf-8')).hexdigest()
-    if(data_sha==sha256):
+    data_sha=hashlib.sha256((data+str(tail,encoding='utf-8')).encode('utf-8')).hexdigest()
+    if(data_sha==str(sha256,encoding='utf-8')):
         xxxx=data
         break
 
