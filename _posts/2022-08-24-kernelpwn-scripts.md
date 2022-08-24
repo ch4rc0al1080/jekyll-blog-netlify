@@ -9,6 +9,7 @@ categories:
 tags: 
     - CTF
     - Pwn
+    - Notes
 ---
 
 <!--more-->
