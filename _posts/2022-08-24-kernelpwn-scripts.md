@@ -12,8 +12,8 @@ tags:
 ---
 
 <!--more-->
-### 本地脚本
-#### 提取vmlinux工具
+## 本地脚本
+### 提取vmlinux工具
 **vmlinux-to-elf**
 
 推荐使用
@@ -27,7 +27,7 @@ sudo pip3 install --upgrade git+https://github.com/marin-m/vmlinux-to-elf
 > vmlinux-to-elf ./bzImage ./vmlinux
 
 
-#### 提取vmlinux脚本
+### 提取vmlinux脚本
 
 该脚本可能在较低版本号的ubuntu环境中可能不能解析出vmlinux
 
@@ -103,7 +103,7 @@ echo "$me: Cannot find vmlinux." >&2
 
 
 
-#### 重启kernel脚本
+### 重启kernel脚本
 ```sh
 rm ./exp rootfs/exp
 musl-gcc exp.c -static -o exp -masm=intel
@@ -124,8 +124,8 @@ cd ..
 
 
 
-### 远程脚本
-#### 远程上传执行脚本
+## 远程脚本
+### 远程上传执行脚本
 ```python
 from pwn import *
 import base64
@@ -153,7 +153,7 @@ p.sendline("chmod +x /tmp/exploit")
 p.sendline("/tmp/exploit")
 
 ```
-#### 远程爆破kaslr脚本
+### 远程爆破kaslr脚本
 ```python
 from pwn import *
 import base64
