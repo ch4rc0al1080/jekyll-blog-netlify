@@ -20,8 +20,8 @@ tags:
 
 安装
 > sudo apt install python3-pip
-sudo pip3 install --upgrade lz4 zstandard git+https://github.com/clubby789/python-lzo@b4e39df
-sudo pip3 install --upgrade git+https://github.com/marin-m/vmlinux-to-elf
+> sudo pip3 install --upgrade lz4 zstandard git+https://github.com/clubby789/python-lzo@b4e39df
+> sudo pip3 install --upgrade git+https://github.com/marin-m/vmlinux-to-elf
 
 使用
 > vmlinux-to-elf ./bzImage ./vmlinux
